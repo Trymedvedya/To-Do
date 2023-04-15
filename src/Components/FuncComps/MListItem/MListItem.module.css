@@ -1,0 +1,108 @@
+.m_id,
+.m_caption,
+.m_id_active,
+.m_category {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.m_id {
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0 10px;
+    border-radius: 10px;
+    color: white;
+    background-color:  none;
+
+}
+
+.m_id_active {
+    border: 2px solid rgba(209,39,39,0.8);
+    padding: 0 10px;
+    border-radius: 10px;
+    color: rgba(209,39,39,0.8);
+
+    
+
+}
+
+.m_body {
+    font-style: italic;
+    font-weight: bold;
+    max-width: 35vw;
+    margin-bottom: 5px;
+    
+}
+
+.m_capgroup {
+    display: flex;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.m_Litem {
+    border-bottom: 1px solid white;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+.m_func_statusgroup {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.m_caption {
+    padding: 0px 10px;
+    border: 2px solid white;
+    margin-left: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+.m_category {
+    padding: 0px 10px;
+    border: 2px dotted rgb(0, 255, 213);
+    margin-left: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    color: rgb(0, 255, 213);
+    font-style: italic;
+}
+.m_st_gr{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    background-color: none;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.2);
+    backdrop-filter: blur(6px);
+    background-color: rgba(41, 39, 39, 0.9);
+}
+
+
+
+.m_doings {
+    background-color:rgba(109, 85, 203, 0.522);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    -moz-transition: 0.5s ease-out;
+    
+    width: 40px;
+}
+
+.m_doings:hover {
+    opacity: 0.7;
+    -moz-transition: 0.5s ease-in-out ;
+}

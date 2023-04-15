@@ -1,0 +1,14 @@
+.MButton{ 
+    background-color: rgba(109, 85, 203, 0.522);
+    
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: ease-in-out 0.3s;
+}
+.MButton:hover{
+    opacity: 70%;
+    cursor: pointer;
+}

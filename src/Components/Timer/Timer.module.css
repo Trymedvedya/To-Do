@@ -1,0 +1,10 @@
+.timerst{
+    color: rgb(185, 21, 21);
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid rgb(185, 21, 21);
+    padding: 8px;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

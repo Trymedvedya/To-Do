@@ -1,0 +1,11 @@
+.Minput {
+    width: 20vw;
+    padding-left: 10px;
+    background: none;
+
+    color: #ffffff;
+    border: 1px solid white;
+    height: 50px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
