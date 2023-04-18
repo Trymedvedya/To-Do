@@ -8,7 +8,7 @@ const MSetForm = (props) => {
         <Mform onSubmit={props.sumSet}>
             {props.dat.title === '' ? <p className={st.alert}>Заполните заголовок</p> : <></>}
             <Minput
-                value={props.dat.title.replace('  ', ' ')}
+                value={props.dat.title.replace('  ', ' ').trim()}
                 onChange={props.han}
                 name='title'
                 placeholder='Заголовок' />
@@ -42,6 +42,7 @@ const MSetForm = (props) => {
                     onChange={props.han}
                     name='eDays'
                     placeholder='Дни'
+                    type='number'
                 />
                 <Minput
                     style={{ width: '70px' }}
@@ -50,8 +51,11 @@ const MSetForm = (props) => {
                     onChange={props.han}
                     name='eHours'
                     placeholder='Часы'
+                    type='number'
+                    
                 />
                 <Minput
+                    type='number'
                     style={{ width: '70px' }}
                     maxLength='3'
                     value={props.dat.eMinutes.replace(/[\D]+/g, '')}

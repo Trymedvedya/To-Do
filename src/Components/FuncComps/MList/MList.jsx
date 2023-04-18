@@ -36,20 +36,19 @@ const MList = () => {
         setSetData(prevState => { return { ...prevState, [e.target.name]: e.target.checked } })
     }
     const dateAnal = () => {
-        if (setData.eDays === '' && setData.eHours === '' && setData.eMinutes === '' && setData.eSeconds === '') {
+        if (setData.eDays === '' && setData.eHours === '' && setData.eMinutes === '' && setData.eSeconds === '' ) {
             return '';
         } else {
             return Date.now() + setData.eDays * (24 * 3600 * 1000) + setData.eHours * (3600 * 1000) + setData.eMinutes * (60 * 1000) + setData.eSeconds * 1000;
         }
     }
-    const catAnal = () => { return setData.cat === ' ' ? setData.cat.replace(' ', '') : setData.cat.charAt(0)===' '?setData.cat.toLowerCase().replace(' ',''):setData.cat.toLowerCase() }
     const sumbitSetForm = async (e) => {
         e.preventDefault();
-        var params = {
-            title: setData.title,
-            body: setData.body,
+        let params = {
+            title: setData.title.trim(),
+            body: setData.body.trim(),
             imp: setData.imp,
-            cat: catAnal(),
+            cat: setData.cat.trim(),
             expdate: dateAnal()
         }
         params = JSON.stringify(params)
@@ -65,9 +64,9 @@ const MList = () => {
     }
     const sumbitEditForm = async (e) => {
         e.preventDefault();
-        var params = {
-            title: setData.title,
-            body: setData.body,
+        let params = {
+            title: setData.title.trim(),
+            body: setData.body.trim(),
             imp: setData.imp,
             cat: setData.cat.toLowerCase(),
             expdate: setData.expdate
@@ -150,11 +149,10 @@ const MList = () => {
             <div className={st.categories}>
                 <p className={st.cat_title}>Категории:</p>
                 <p className={catTracker === 'All' ? st.category_select : st.category} onClick={() => { setSortedTasks(taskar); setCatTracker('All') }}>все</p>
-                {loaded === true ? categories.map((cat) => cat.length != 0 ? <p onClick={() => sort(cat)} className={catTracker === cat ? st.category_select : st.category}>{cat}</p> : <></>) : <></>}
+                {loaded === true ? categories.map((cat) => cat.length != 0 ? <p onClick={() => sort(cat)} key={cat} className={catTracker === cat ? st.category_select : st.category}>{cat}</p> : null) : null}
             </div>
-            {loaded === true ?
-                sortedTasks.map(
-                    (task) => task.length === 2 ?
+            {sortedTasks.length ?sortedTasks.map(
+                    (task) => 
                         <MListItem
                             edit={() => edit(task[0])}
                             track={() => setTrack('edit')}
@@ -166,8 +164,7 @@ const MList = () => {
                             cat={task[1].cat}
                             key={task[0]}
                             expiredate={task[1].expdate}
-                        /> : <></>
-                ) : loaded === false || sortedTasks.length === 0  ? <h1 className={st.addd}>Добавьте задачи</h1> : <h1>Терпи, терпила</h1>}
+                        /> ) :  <h1 className={st.addd}>Добавьте задачи</h1>}
             <MButton onClick={hClfSet}>Добавить задачу</MButton>
         </div>
     );

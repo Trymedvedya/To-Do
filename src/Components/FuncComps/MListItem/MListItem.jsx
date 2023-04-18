@@ -9,14 +9,7 @@ const MListItem = (props) => {
     const vis = useSelector((state) => state.visibility.value);
     const dispatch = useDispatch();
     const hCl = () => {
-        setToCh(true)
-    }
-    const hClf = () => {
-        setToCh(false)
-    }
-    const hClfRemove = () => {
-        setToCh(false);
-        props.remove()
+        setToCh(!toCh)
     }
     const hClfEdit = () => {
         setToCh(false);
@@ -25,7 +18,7 @@ const MListItem = (props) => {
         props.edit();
 
     }
-    useEffect(() => { vis === true ? setToCh(false) : console.log('') }, [vis])
+    useEffect(() => { vis ? setToCh(false) : console.log('') }, [vis])
     return (
         <div className={st.m_Litem}>
             <div>
@@ -47,9 +40,9 @@ const MListItem = (props) => {
                     <span className={st.m_doings} onClick={hCl}>. . .</span>
                     :
                     <div className={st.m_st_gr}>
-                        <MButton style={{ marginRight: '10px' }} onClick={hClf}>
+                        <MButton style={{ marginRight: '10px' }} onClick={hCl}>
                             Скрыть</MButton>
-                        <MButton onClick={hClfRemove} >
+                        <MButton onClick={props.remove} >
                             Удалить
                         </MButton>
                         <MButton onClick={hClfEdit} style={{ marginLeft: '10px' }}>

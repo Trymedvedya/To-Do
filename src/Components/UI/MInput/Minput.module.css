@@ -2,10 +2,20 @@
     width: 20vw;
     padding-left: 10px;
     background: none;
-
     color: #ffffff;
     border: 1px solid white;
     height: 50px;
     margin-bottom: 5px;
     border-radius: 5px;
+}
+.Minput::-webkit-outer-spin-button,
+.Minput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Minput[type=number] {
+    -moz-appearance:textfield;
+  }
+.Minput::placeholder{
+    color: white;
 }

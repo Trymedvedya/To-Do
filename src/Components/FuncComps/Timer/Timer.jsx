@@ -4,7 +4,7 @@ import st from './Timer.module.css'
 const Timer = ({ expiredate }) => {
     const [over, setOver] = useState(false);
     const [data, setData] = useState({
-        d: Math.floor((expiredate - Date.now()) / (1000 * 60 * 60 * 24) % 30),
+        d: Math.floor((expiredate - Date.now()) / (1000 * 60 * 60 * 24)),
         h: Math.floor((expiredate - Date.now()) / (1000 * 60 * 60) % 24),
         m: Math.floor((expiredate - Date.now()) / (1000 * 60) % 60),
         s: Math.floor((expiredate - Date.now()) / (1000) % 60)
@@ -16,7 +16,6 @@ const Timer = ({ expiredate }) => {
 
         if (data.d === 0 && data.h === 0 && data.m === 0 && data.s === 0) {
             setOver(true);
-            ff.play();
         } else if (data.h === 0 && data.m === 0 && data.s === 0) {
             setData({ d: data.d - 1, h: 23, m: 59, s: 59 })
         } else if (data.m === 0 && data.s === 0) {
@@ -31,9 +30,9 @@ const Timer = ({ expiredate }) => {
     useEffect(() => {
         const timerID = setInterval(() => tick(), 1000);
         return () => clearInterval(timerID);
-
+        
     }, [data.d, data.h, data.m, data.s]);
-    const ff = new Audio('/FEELS-LIKE-I_M-WALKING-ON-SUNSHINE_.mp3')
+    
 
     return (
         <div>
