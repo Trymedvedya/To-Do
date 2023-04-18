@@ -3,10 +3,10 @@ import st from './MListItem.module.css'
 import MButton from '../../UI/MButton/MButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { visible } from '../../Redux/Redux-slices/visibleSlice';
-import Timer from '../../Timer/Timer';
+import Timer from '../Timer/Timer';
 const MListItem = (props) => {
     const [toCh, setToCh] = useState(false);
-    const vis=useSelector((state) => state.visibility.value);
+    const vis = useSelector((state) => state.visibility.value);
     const dispatch = useDispatch();
     const hCl = () => {
         setToCh(true)
@@ -23,9 +23,9 @@ const MListItem = (props) => {
         props.track();
         dispatch(visible());
         props.edit();
-        
+
     }
-      useEffect(()=>{vis===true?setToCh(false):console.log('')},[vis])
+    useEffect(() => { vis === true ? setToCh(false) : console.log('') }, [vis])
     return (
         <div className={st.m_Litem}>
             <div>
@@ -33,9 +33,9 @@ const MListItem = (props) => {
                     <div className={st.m_capgroup}>
                         <p className={props.imp === false ? st.m_id : st.m_id_active}>{props.id}</p>
                         <p className={st.m_caption}>{props.title}</p>
-                        {props.cat.length===0?<></>:<p className={st.m_category}>{props.cat}</p>}
-                        {props.expiredate==''?<></>:<Timer  expiredate={props.expiredate}/>}
-                        
+                        {props.cat.length === 0 ? <></> : <p className={st.m_category}>{props.cat}</p>}
+                        {props.expiredate == '' ? <></> : <Timer expiredate={Number(props.expiredate)} />}
+
                     </div>
                     <div className={st.m_bodygroup}>
                         <p className={st.m_body}>{props.body}</p>
@@ -47,7 +47,6 @@ const MListItem = (props) => {
                     <span className={st.m_doings} onClick={hCl}>. . .</span>
                     :
                     <div className={st.m_st_gr}>
-
                         <MButton style={{ marginRight: '10px' }} onClick={hClf}>
                             Скрыть</MButton>
                         <MButton onClick={hClfRemove} >

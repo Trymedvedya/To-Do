@@ -3,10 +3,10 @@ import st from './ModalWindow.module.css'
 import { invisible } from '../../Redux/Redux-slices/visibleSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ModalWindow = (props ) => {
+const ModalWindow = (props) => {
     const vis = useSelector((state) => state.visibility.value);
     const dispatch = useDispatch();
-    const hCltClear = () =>{
+    const hCltClear = () => {
         dispatch(invisible());
         props.clearForm();
     }

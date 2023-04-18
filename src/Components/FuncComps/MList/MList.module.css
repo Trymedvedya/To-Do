@@ -7,6 +7,7 @@
     background: linear-gradient(180deg, rgba(209, 39, 39, 0.7) 0%, rgba(101, 87, 186, 0.7) 100%);
     padding: 20px;
     border-radius: 12px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.379);
     
 }
 .addd{
@@ -54,10 +55,4 @@
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
-}
-.time{
-    display: flex;
-    justify-content: space-between;
-    width: 225px;
-    margin-top: 5px;
 }

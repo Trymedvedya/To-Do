@@ -1,0 +1,17 @@
+.time{
+    display: flex;
+    justify-content: space-between;
+    width: 225px;
+    margin-top: 5px;
+}
+.alert{
+    position: fixed;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: white;
+    color: red;
+    border-radius: 12px;
+    opacity: 70%;
+}
