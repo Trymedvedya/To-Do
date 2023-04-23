@@ -15,10 +15,20 @@
     background-color: white;
     color: rgb(0, 0, 0);
     border-radius: 12px;
-    
+    display: flex;
+    align-items: center;
+    transform: rotate(5deg);
 }
 .check{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.dot{
+    border-radius: 5000px;
+    width: 20px;
+    height: 20px;
+    background-color:black;
+    margin-right: 20px;
+    box-shadow: 2px 2px 2px rgb(38, 38, 38);
 }

@@ -7,7 +7,7 @@ import MCheckbox from '../../UI/MCheckbox/MCheckbox';
 const MSetForm = (props) => {
     return (
         <Mform onSubmit={props.sumSet}>
-            {props.dat.title === '' ? <p className={st.alert}>Заполните заголовок</p> : <></>}
+            {props.dat.title === '' ? <p className={st.alert}> <div className={st.dot}></div>Заполните заголовок</p> : <p className={st.alert}><div className={st.dot}></div>{`{......................}`}</p>}
             <Minput
                 value={props.dat.title.replace('  ', ' ').trim()}
                 onChange={props.han}
