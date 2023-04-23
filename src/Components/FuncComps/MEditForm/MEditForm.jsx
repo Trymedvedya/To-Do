@@ -2,6 +2,8 @@ import React from 'react';
 import Mform from '../MForm/Mform';
 import Minput from '../../UI/MInput/Minput';
 import MButton from '../../UI/MButton/MButton';
+import MCheckbox from '../../UI/MCheckbox/MCheckbox';
+import st from './MEditForm.module.css'
 const MEditForm = (props) => {
     return (
         <Mform onSubmit={props.sumSet}>
@@ -15,12 +17,11 @@ const MEditForm = (props) => {
                 onChange={props.han}
                 name='body'
                 placeholder='Редактировать запись' />
-            <label>Важно? <input
-                checked={props.dat.imp}
-                name='imp'
-                type="checkbox"
-                onChange={props.chHan}
-            /></label>
+            <label className={st.check}>Не Важно <MCheckbox
+                    checked={props.dat.imp}
+                    name='imp'
+                    onChange={props.chHan}
+            />Важно</label>
 
             <Minput
                 value={props.dat.cat}

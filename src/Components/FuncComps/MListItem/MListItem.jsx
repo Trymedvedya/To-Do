@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import st from './MListItem.module.css'
 import MButton from '../../UI/MButton/MButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { visible } from '../../Redux/Redux-slices/visibleSlice';
+import { visible } from '../../../Redux/Redux-slices/visibleSlice';
 import Timer from '../Timer/Timer';
 const MListItem = (props) => {
     const [toCh, setToCh] = useState(false);

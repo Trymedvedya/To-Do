@@ -5,12 +5,13 @@
     justify-items: center;
 }
 .bibigon{
-    background: linear-gradient(180deg, rgba(209, 39, 39, 0.7) 0%, rgba(101, 87, 186, 0.7) 100%);
+    background: black;
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
     color: white;
 }
 i{
-    color: rgba(209, 39, 39, 0.7);
+    color: white;
+    text-decoration: underline;
 }

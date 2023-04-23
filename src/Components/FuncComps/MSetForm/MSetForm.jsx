@@ -3,6 +3,7 @@ import Mform from '../MForm/Mform';
 import Minput from '../../UI/MInput/Minput';
 import st from './MSetForm.module.css'
 import MButton from '../../UI/MButton/MButton';
+import MCheckbox from '../../UI/MCheckbox/MCheckbox';
 const MSetForm = (props) => {
     return (
         <Mform onSubmit={props.sumSet}>
@@ -17,12 +18,11 @@ const MSetForm = (props) => {
                 onChange={props.han}
                 name='body'
                 placeholder='Запись' />
-            <label>Важно? <input
-                checked={props.dat.imp}
-                name='imp'
-                type="checkbox"
-                onChange={props.chHan}
-            /></label>
+            <label className={st.check}>Не Важно <MCheckbox
+                    checked={props.dat.imp}
+                    name='imp'
+                    onChange={props.chHan}
+            />Важно</label>
 
             <Minput
                 value={props.dat.cat.replace('  ', ' ')}
@@ -37,7 +37,7 @@ const MSetForm = (props) => {
 
                 <Minput
                     style={{ width: '70px' }}
-                    value={props.dat.eDays.replace(/[\D]+/g, '')}
+                    value={`${props.dat.eDays.replace(/[\D]+/g, '')}`}
                     maxLength='3'
                     onChange={props.han}
                     name='eDays'
@@ -47,7 +47,7 @@ const MSetForm = (props) => {
                 <Minput
                     style={{ width: '70px' }}
                     maxLength='3'
-                    value={props.dat.eHours.replace(/[\D]+/g, '')}
+                    value={`${props.dat.eHours.replace(/[\D]+/g, '')}`}
                     onChange={props.han}
                     name='eHours'
                     placeholder='Часы'
@@ -58,7 +58,7 @@ const MSetForm = (props) => {
                     type='number'
                     style={{ width: '70px' }}
                     maxLength='3'
-                    value={props.dat.eMinutes.replace(/[\D]+/g, '')}
+                    value={`${props.dat.eMinutes.replace(/[\D]+/g, '')}`}
                     onChange={props.han}
                     name='eMinutes'
                     placeholder='Mинуты'

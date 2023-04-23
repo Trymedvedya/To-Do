@@ -5,9 +5,10 @@ import axios from 'axios';
 import MButton from '../../UI/MButton/MButton';
 import ModalWindow from '../../UI/ModalWindow/ModalWindow';
 import { useDispatch, useSelector } from 'react-redux';
-import { invisible, visible } from '../../Redux/Redux-slices/visibleSlice';
+import { invisible, visible } from '../../../Redux/Redux-slices/visibleSlice';
 import MSetForm from '../MSetForm/MSetForm';
 import MEditForm from '../MEditForm/MEditForm';
+import baseURL from '../../../API/baseURL';
 
 
 const MList = () => {
@@ -48,12 +49,12 @@ const MList = () => {
             title: setData.title.trim(),
             body: setData.body.trim(),
             imp: setData.imp,
-            cat: setData.cat.trim(),
+            cat: setData.cat.trim().toLowerCase(),
             expdate: dateAnal()
         }
         params = JSON.stringify(params)
         try {
-            await axios.post(`https://todo-47438-default-rtdb.europe-west1.firebasedatabase.app/tasks.json`, params)
+            await baseURL.post(`/tasks.json`, params)
             setSetData({ title: '', body: '', imp: false, cat: '', eDays: '', eHours: '', eMinutes: '', eSeconds: '' });
             dispatch(invisible());
             getTasks();
@@ -68,12 +69,12 @@ const MList = () => {
             title: setData.title.trim(),
             body: setData.body.trim(),
             imp: setData.imp,
-            cat: setData.cat.toLowerCase(),
+            cat: setData.cat.trim().toLowerCase(),
             expdate: setData.expdate
         }
         params = JSON.stringify(params)
         try {
-            await axios.put(`https://todo-47438-default-rtdb.europe-west1.firebasedatabase.app/tasks/${setData.id}.json`, params)
+            await baseURL.put(`/tasks/${setData.id}.json`, params)
             setSetData({ title: '', body: '', imp: false, cat: '' });
             dispatch(invisible());
             getTasks();
@@ -86,7 +87,7 @@ const MList = () => {
     const dispatch = useDispatch();
     const getTasks = async () => {
         try {
-            const res = await axios.get('https://todo-47438-default-rtdb.europe-west1.firebasedatabase.app/tasks.json')
+            const res = await baseURL.get('/tasks.json')
             let resdata = res.data;
             if (resdata === null) {
                 setLoaded(false);
@@ -115,7 +116,7 @@ const MList = () => {
             setSortedTasks(taskar.filter(el => el[0] != id))
         }
         try {
-            await axios.delete(`https://todo-47438-default-rtdb.europe-west1.firebasedatabase.app/tasks/${id}.json`)
+            await baseURL.delete(`/tasks/${id}.json`)
         } catch (e) {
             console.log(e)
         }

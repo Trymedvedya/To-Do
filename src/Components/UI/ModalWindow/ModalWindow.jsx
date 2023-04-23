@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './ModalWindow.module.css'
-import { invisible } from '../../Redux/Redux-slices/visibleSlice';
+import { invisible } from '../../../Redux/Redux-slices/visibleSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ModalWindow = (props) => {
